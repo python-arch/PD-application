@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pdapplication">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,15 +13,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Detailed_statistics" />
-        <activity android:name=".LineChartAcivity" />
+        <activity android:name=".hospitago.disabled_account"></activity>
+        <activity android:name=".hospitago.Hospitago" />
+        <activity android:name=".Intro_activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".statistics.Slider_info" />
+        <activity android:name=".statistics.Detailed_statistics" />
+        <activity android:name=".lineChart.LineChartAcivity" />
         <activity android:name=".TestYourSelf" />
+        <activity android:name=".hospitago.user_Main" />
+        <activity android:name=".hospitago.Login" />
+        <activity android:name=".hospitago.edit_hospital" />
+        <activity android:name=".hospitago.hospital_registration" />
+        <activity android:name=".hospitago.main_hospital" />
 
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".Statistics" />
+        <activity android:name=".statistics.Statistics" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +44,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

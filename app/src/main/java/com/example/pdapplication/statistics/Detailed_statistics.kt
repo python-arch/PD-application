@@ -1,40 +1,33 @@
-package com.example.pdapplication
+package com.example.pdapplication.statistics
 
 import android.content.Intent
-import android.os.Bundle
-import android.view.View
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.pdapplication.R
-import kotlinx.android.synthetic.main.activity_statistics.*
+import kotlinx.android.synthetic.main.activity_detailed_statistics.*
 import org.json.JSONObject
 
-class Statistics : AppCompatActivity() {
+class Detailed_statistics : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_statistics)
+        setContentView(R.layout.activity_detailed_statistics)
 
-//        shift to DOCTOR DROID activity
+// shift to the slider
 
-        imageView.setOnClickListener(View.OnClickListener {
-            val i = Intent(this@Statistics, MainActivity::class.java)
-            startActivity(i)
-            finish()
-        })
-
-//        shift to detailed statistics
-        see_more.setOnClickListener {
-            startActivity(Intent(this , Detailed_statistics::class.java))
+        why_info.setOnClickListener {
+            startActivity(Intent(this, Slider_info::class.java))
         }
-
 
         getGlobalData()
     }
+
+
     fun getGlobalData(){
         var url = "https://disease.sh/v2/all"
         var stringRequest: StringRequest = StringRequest(
@@ -44,17 +37,23 @@ class Statistics : AppCompatActivity() {
                 var jsonObject = JSONObject(it.toString())
 
 //                set values to textViews
-                txtConfirmed.text = jsonObject.getString("cases")
-                txtRecovered.text = jsonObject.getString("recovered")
-                txtDeaths.text = jsonObject.getString("deaths")
+
+                txtUpdated.text = jsonObject.getString("updated")
+                txtTests.text = jsonObject.getString("tests")
+                txtActive.text = jsonObject.getString("active")
+                txtCritical.text = jsonObject.getString("critical")
+                txtAffected.text = jsonObject.getString("affectedCountries")
             },
             Response.ErrorListener {
 
 //                something went wrong
+
                 Toast.makeText(this , "someting went wrong..." , Toast.LENGTH_LONG).show()
-                txtConfirmed.text = "-"
-                txtRecovered.text = "-"
-                txtDeaths.text = "-"
+                txtUpdated.text = "-"
+                txtTests.text = "-"
+                txtActive.text = "-"
+                txtCritical.text = "-"
+                txtAffected.text = "-"
             })
         var requestQueue = Volley.newRequestQueue(this)
         requestQueue.add(stringRequest)

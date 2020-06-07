@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.pdapplication.R
+import com.example.pdapplication.statistics.Statistics
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -19,6 +19,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        shift to the statistics activity
+
         stat.setOnClickListener(View.OnClickListener {
             val i = Intent(this@MainActivity, Statistics::class.java)
             startActivity(i)
@@ -38,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 //    ask for permissions and PHONE call function
+
     private fun makePhoneCall() {
         val number: String = "123"
         if (number.trim { it <= ' ' }.length > 0) {
@@ -67,6 +71,9 @@ class MainActivity : AppCompatActivity() {
     ) {
         if (requestCode == REQUEST_CALL) {
             if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+//                invoke the call function
+
                 makePhoneCall()
             } else {
                 Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show()
