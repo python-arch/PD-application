@@ -3,6 +3,7 @@ package com.example.pdapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.pdapplication.mapActivities.MapActivity
 import kotlinx.android.synthetic.main.activity_intro_activity.*
 
 class Intro_activity : AppCompatActivity() {
@@ -17,5 +18,12 @@ class Intro_activity : AppCompatActivity() {
             startActivity(Intent(this , MainActivity::class.java))
             finish()
         }
+
+//        click the bell to call the map
+
+        bell_urgent2.setOnClickListener {
+            startActivity(Intent(this , MapActivity::class.java))
+        }
+
     }
 }

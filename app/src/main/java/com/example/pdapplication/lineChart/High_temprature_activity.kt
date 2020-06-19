@@ -1,74 +1,56 @@
-package com.example.pdapplication
+package com.example.pdapplication.lineChart
 
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.pdapplication.mapActivities.MapActivity
-import com.example.pdapplication.statistics.Statistics
-import com.onesignal.OneSignal
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.pdapplication.R
+import com.example.pdapplication.hospitago.user_Main
+import kotlinx.android.synthetic.main.activity_high_temprature_activity.*
 
+class High_temprature_activity : AppCompatActivity() {
 
-class MainActivity : AppCompatActivity() {
     private val REQUEST_CALL = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_high_temprature_activity)
 
+//        get the alert message and display it
 
-//        click the bell to call the map
+        var message = intent.getStringExtra("message")
 
-        bell_urgent.setOnClickListener {
-            startActivity(Intent(this , MapActivity::class.java))
+        text_view.text = message
+
+//        call the emergency
+        emergency.setOnClickListener {
+            makePhoneCall()
         }
 
-        // OneSignal Initialization to send notification to all users
+//        find a hospital
 
-        OneSignal.startInit(this)
-            .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-            .unsubscribeWhenNotificationsAreDisabled(true)
-            .init()
-
-
-//        shift to the statistics activity
-
-        stat.setOnClickListener(View.OnClickListener {
-            val i = Intent(this@MainActivity, Statistics::class.java)
-            startActivity(i)
-        })
-
-//         call 123 function
-        callnow.setOnClickListener {
-           makePhoneCall()
-        }
-
-//        open to LINE Chart and doctor droid
-
-        testYourseld.setOnClickListener {
-            startActivity(Intent(this , TestYourSelf::class.java))
+        find_hospital.setOnClickListener {
+            startActivity(Intent(this , user_Main::class.java))
         }
 
     }
 
-//    ask for permissions and PHONE call function
 
     private fun makePhoneCall() {
         val number: String = "123"
         if (number.trim { it <= ' ' }.length > 0) {
             if (ContextCompat.checkSelfPermission(
-                    this@MainActivity,
+                    this@High_temprature_activity,
                     Manifest.permission.CALL_PHONE
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
                 ActivityCompat.requestPermissions(
-                    this@MainActivity,
+                    this@High_temprature_activity,
                     arrayOf(Manifest.permission.CALL_PHONE),
                     REQUEST_CALL
                 )
@@ -77,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(Intent.ACTION_CALL, Uri.parse(dial)))
             }
         } else {
-            Toast.makeText(this@MainActivity, "Enter Phone Number", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@High_temprature_activity, "Enter Phone Number", Toast.LENGTH_SHORT).show()
         }
     }
 

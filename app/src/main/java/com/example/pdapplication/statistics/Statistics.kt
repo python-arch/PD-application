@@ -21,7 +21,7 @@ class Statistics : AppCompatActivity() {
 
 //        shift to DOCTOR DROID activity
 
-        imageView.setOnClickListener(View.OnClickListener {
+        bell_urgent.setOnClickListener(View.OnClickListener {
             val i = Intent(this@Statistics, MainActivity::class.java)
             startActivity(i)
             finish()

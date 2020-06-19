@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/bell_urgent3"
         android:layout_width="43dp"
         android:layout_height="52dp"
         android:layout_marginTop="16dp"

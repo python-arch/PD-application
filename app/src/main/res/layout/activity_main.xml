@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/bell_urgent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -42,7 +42,7 @@
         android:textColor="#FFFFFF"
         android:textSize="29sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/bell_urgent" />
 
 
     <TextView
@@ -103,6 +103,21 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/callnow" />
+
+    <TextView
+        android:id="@+id/improve_your_badHabits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:fontFamily="@font/graphikregular"
+        android:text="Not Working?"
+        android:textColor="#536DFE"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <ImageView
         android:id="@+id/imageView3"

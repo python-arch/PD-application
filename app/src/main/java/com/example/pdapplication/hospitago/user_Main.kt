@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pdapplication.R
+import com.example.pdapplication.mapActivities.MapActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -25,8 +26,17 @@ class user_Main : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user__main)
 
+
+//        read and display the hospitals in the activity
+
         read_hospitals()
 
+//        open the nearby place activity
+
+        open_map.setOnClickListener {
+            startActivity(Intent(this , MapActivity::class.java))
+        }
+        
     }
 
     fun read_hospitals(){

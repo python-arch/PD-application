@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pdapplication.R
+import com.example.pdapplication.mapActivities.MapActivity
 import kotlinx.android.synthetic.main.activity_hospitago.*
 class Hospitago : AppCompatActivity() {
 
@@ -22,6 +23,9 @@ class Hospitago : AppCompatActivity() {
         tv_hospital.setOnClickListener {
             startActivity(Intent(this , Login::class.java))
         }
+
+
+
     }
 
 }

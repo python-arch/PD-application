@@ -7,6 +7,7 @@
     tools:context=".hospitago.Hospitago">
 
     <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView3"
         android:layout_width="match_parent"
         android:layout_height="700dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,4 +60,6 @@
         app:layout_constraintEnd_toEndOf="@+id/tv_hospital"
         app:layout_constraintStart_toStartOf="@+id/tv_hospital"
         app:layout_constraintTop_toTopOf="@+id/tv_hospital" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
